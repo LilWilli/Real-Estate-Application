@@ -14,7 +14,7 @@ const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false); // State to toggle between login and signup
   const { signUpWithGitHub, logIn, signUpWithGmail, signInWithFacebook, signInWithTwitter } = useContext(AuthContext); // Include Facebook and Twitter
   const router = useRouter();
-  const from = router.query?.from || "/"; // Getting the route where the user came from
+  const from = router.query?.from || "/successful"; // Getting the route where the user came from
 
   // Handle login process with Node.js backend
   const handleLogin = async (event) => {

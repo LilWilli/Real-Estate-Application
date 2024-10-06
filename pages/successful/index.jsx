@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import { Button as ChakraButton } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import CheckoutPage from 'pages/shop/CheckoutPage';
-const CartPage = () => {
+const Successful = () => {
     const [cartItem, setCartItem] = useState([]);
     const [coupon, setCoupon] = useState("");
     const [discount, setDiscount] = useState(0);
@@ -116,10 +116,9 @@ const CartPage = () => {
     };
 
     return (
-
         <div>
             <NavItems />
-            <PageHeader title={"Real Estate"} curPage={"Cart Page"} />
+            <PageHeader title={"Real Estate"} curPage={"HomePage"} />
             <div className="shop-cart padding-tb">
                 <div className="container">
                     <div className="section-wrapper">
@@ -328,8 +327,7 @@ const CartPage = () => {
             </Modal>
 
         </div >
-
     );
 };
 
-export default CartPage;
+export default Successful;
