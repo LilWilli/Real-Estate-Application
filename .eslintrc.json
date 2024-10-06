@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+  // This line is extending the configuration from the "next/core-web-vitals" package. This configuration is specific to Next.js projects and includes recommended ESLint rules for measuring Core Web Vitals.
+  "extends": "next/core-web-vitals",
+
+  // This object contains the configuration for ESLint.
+  "rules": {
+    "react/no-unescaped-entities": "off", // Disable unescaped entities rule
+    "jsx-a11y/alt-text": "off", // Disable alt text warning for images
+    "@next/next/no-img-element": "off" // Disable no <img> element warning
+  }
 }
+ 

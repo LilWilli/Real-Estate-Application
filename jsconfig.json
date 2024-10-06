@@ -1,7 +1,17 @@
 {
+  // The "compilerOptions" property is used to configure the TypeScript compiler.
   "compilerOptions": {
+    // "baseUrl" is the base directory to resolve non-relative module names.
+    // In this case, all non-relative module names will be resolved relative to the current directory.
+    "baseUrl": ".",
+
+    // "paths" is used to map module names to their actual locations on disk.
+    // The "@/*" key is mapped to an array of paths where TypeScript should look for modules named "*" in the "@/" namespace.
     "paths": {
-      "@/*": ["./*"]
+      // The "./src/*" pattern matches any module name that starts with "@/".
+      // The "./src/*" path is the actual location on disk where TypeScript should look for those modules.
+      "@/*": ["./src/*"]
     }
   }
 }
+

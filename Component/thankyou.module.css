@@ -1,0 +1,25 @@
+.thankYouPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 { /* Scope the h1 to .container */
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.container p { /* Scope the p to .container */
+    color: #6c757d;
+    margin-bottom: 10px;
+}

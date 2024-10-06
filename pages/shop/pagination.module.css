@@ -1,0 +1,60 @@
+/* CSS for the navigation profile icon */
+.nav-profile{
+    /* Width and height of the profile icon */
+    width: 40px;
+    height: 40px;
+    /* Rounded shape */
+    border-radius: 50%;
+    /* Background color of the profile icon */
+    background: indigo;
+    /* Cursor changes to pointer when hovering over the icon */
+    cursor: pointer;
+}
+
+/* CSS for the page item */
+.page_item{
+    /* Width and height of the page item */
+    width: 46px;
+    height: 46px;
+    /* Center the text horizontally and vertically */
+    text-align: center;
+    /* Rounded shape */
+    border-radius: 50%;
+    /* Box shadow for the page item */
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .06);
+    /* Background color of the page item */
+    background: #fff;
+    /* Text color of the page item */
+    color: #101115;
+    /* Display the content as a flex container */
+    display: flex;
+    /* Align items (children) along the horizontal axis */
+    justify-content: center;
+    /* Align items (children) along the vertical axis */
+    align-items: center;
+    /* Margin of the page item */
+    margin: 7px;
+}
+
+/* CSS for the GitHub icon */
+.github{
+    /* Height and width of the GitHub icon */
+    height: 36px;
+    width: 36px;
+    /* Center the text vertically and horizontally */
+    line-height: 36px;
+    /* Transition effect for the hover state */
+    transition: all .3s ease;
+    /* Rounded shape */
+    border-radius: 50%;
+    /* Display the content as an inline flex container */
+    display: inline-flex;
+    /* Align items (children) along the horizontal axis */
+    justify-content: center;
+    /* Align items (children) along the vertical axis */
+    align-items: center;
+    /* Background color of the GitHub icon */
+    background: #0f9058;
+    /* Text color of the GitHub icon */
+    color: #fff;
+}
