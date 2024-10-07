@@ -1,3 +1,5 @@
+// /components/ProductDisplay.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -5,7 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 
-const ProductDisplay = ({ item, addToCart }) => {
+const ProductDisplay = ({ item }) => {
+    // Handle case when item is undefined
+    if (!item) {
+        return <p>Loading...</p>; // You can also render a Not Found page
+    }
+
     const { name, id, price, seller, ratingCount, image, description } = item;
     const [preQuantity, setPreQuantity] = useState(1); // Initialize to 1 to ensure there's a quantity
     const [coupon, setCoupon] = useState(''); // State for coupon code
