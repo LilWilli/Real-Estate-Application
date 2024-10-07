@@ -8,16 +8,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from 'next/link';
 
 const ProductDisplay = ({ item }) => {
+    // Initialize all states at the top level
+    const [preQuantity, setPreQuantity] = useState(1); // Quantity default to 1
+    const [coupon, setCoupon] = useState(''); // State for coupon code
+    const [discount, setDiscount] = useState(0); // State for discount
+    const [isDiscountApplied, setIsDiscountApplied] = useState(false); // State to check if discount is applied
+
     // Handle case when item is undefined
     if (!item) {
         return <p>Loading...</p>; // You can also render a Not Found page
     }
 
     const { name, id, price, seller, ratingCount, image, description } = item;
-    const [preQuantity, setPreQuantity] = useState(1); // Initialize to 1 to ensure there's a quantity
-    const [coupon, setCoupon] = useState(''); // State for coupon code
-    const [discount, setDiscount] = useState(0); // State for discount
-    const [isDiscountApplied, setIsDiscountApplied] = useState(false); // State to check if discount is applied
 
     const handleDecrease = () => {
         if (preQuantity > 1) {
