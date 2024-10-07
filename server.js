@@ -2,7 +2,7 @@
 import express from 'express'; // Importing Express for handling HTTP requests
 import bcrypt from 'bcryptjs'; // Importing bcryptjs for hashing passwords
 import jwt from 'jsonwebtoken'; // Importing jsonwebtoken for generating JSON Web Tokens
-import { connectToDatabase } from 'pages/utils/database';
+import { connectToDatabase } from 'utils/database';
 const db = connectToDatabase(); // Creating a database connection
 const router = express.Router();
 
