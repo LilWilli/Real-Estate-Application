@@ -107,4 +107,3 @@ const ProductCards = ({ gridList, products }) => {
 
 // Exporting the ProductCards component
 export default ProductCards;
-

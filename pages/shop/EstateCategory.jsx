@@ -1,4 +1,3 @@
-// Importing React library
 import React from 'react';
 
 // Creating a functional component EstateCategory
@@ -28,19 +27,18 @@ const EstateCategory = ({ filterItems, setProducts, menuItems, selectedCategory,
           {/* Button text 'All' */}
           All
         </button>
-        {/* Mapping menuItems excluding 'All' */}
-        {menuItems.filter(item => item !== "All").map((val, id) => (
-          // Button for each category
+        {/* Mapping over menuItems array to create category buttons */}
+        {menuItems.map((menuItem, index) => (
+          // Category button
           <button 
-            // Key for each button
-            key={id} 
-            // Class name is 'm-2' for margin and 'bg-warning' if category is selected
-            className={`m-2 ${selectedCategory === val ? "bg-warning" : ""}`} 
-            // OnClick event handler for each button
-            onClick={() => filterItems(val)}
+            key={index} 
+            className={`m-2 ${selectedCategory === menuItem ? "bg-warning" : ""}`} 
+            onClick={() => {
+              // Set filtered products based on selected category
+              filterItems(menuItem); 
+            }}
           >
-            {/* Button text for each category */}
-            {val}
+            {menuItem}
           </button>
         ))}
       </div>
@@ -48,6 +46,5 @@ const EstateCategory = ({ filterItems, setProducts, menuItems, selectedCategory,
   );
 };
 
-// Exporting EstateCategory as default
+// Exporting the EstateCategory component
 export default EstateCategory;
-
