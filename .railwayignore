@@ -1,1 +1,4 @@
-railwayignore
+node_modules
+.next
+.env
+build
