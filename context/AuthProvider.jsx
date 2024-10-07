@@ -12,7 +12,7 @@ import {
   onAuthStateChanged,
   GithubAuthProvider,
 } from 'firebase/auth';
-import app from '../pages/Firebase/firebase.config';
+import app from '../utilis/Firebase/firebase.config';
 import { toast } from 'react-toastify';
 
 export const AuthContext = createContext();
