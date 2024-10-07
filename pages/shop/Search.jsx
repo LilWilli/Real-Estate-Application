@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Search = ({ products, gridList }) => {
+const Search = ({ products }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const filterProducts = products.filter((product) =>
@@ -40,6 +40,7 @@ const Search = ({ products, gridList }) => {
                                     </div>
                                     <div>
                                         {/* Add any additional content if needed */}
+                                        <h6>{product.name}</h6>
                                     </div>
                                 </div>
                             </Link>

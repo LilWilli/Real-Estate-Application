@@ -30,27 +30,27 @@ const addressList = [
 const socialList = [
   {
     iconName: 'icofont-facebook',
-    siteLink: '#',
+    siteLink: '#', // Replace with actual links
     className: 'facebook',
   },
   {
     iconName: 'icofont-twitter',
-    siteLink: '#',
+    siteLink: '#', // Replace with actual links
     className: 'twitter',
   },
   {
     iconName: 'icofont-linkedin',
-    siteLink: '#',
+    siteLink: '#', // Replace with actual links
     className: 'linkedin',
   },
   {
     iconName: 'icofont-instagram',
-    siteLink: '#',
+    siteLink: '#', // Replace with actual links
     className: 'instagram',
   },
   {
     iconName: 'icofont-pinterest',
-    siteLink: '#',
+    siteLink: '#', // Replace with actual links
     className: 'pinterest',
   },
 ];
@@ -72,7 +72,7 @@ const quickList = [
   { text: 'House Gallery', link: '#gallery' },
   { text: 'Building Forums', link: '#forums' },
   { text: 'Privacy Policy', link: '#privacy' },
-  { text: 'Terms Of Use', link: '#Terms' },
+  { text: 'Terms Of Use', link: '#terms' }, // Fixed the case to "terms"
 ];
 
 // Array of recent tweets
@@ -91,8 +91,8 @@ const tweetList = [
 const footerBottomList = [
   { text: 'Faculty', link: '#faculty' },
   { text: 'Staff', link: '#staff' },
-  { text: "Students", link: "#students" },
-  { text: "LilWilli", link: "#link" },
+  { text: 'Students', link: '#students' },
+  { text: 'LilWilli', link: '#link' },
 ];
 
 // Component for rendering footer items
@@ -195,7 +195,7 @@ const Footer = () => {
               <Link href="/" legacyBehavior>
                 <a>House Cart</a>
               </Link>{' '}
-              Designed by <a href="/" target="_blank">LilWilli</a>
+              Designed by <a href="/" target="_blank" rel="noopener noreferrer">LilWilli</a>
             </p>
             <div className="footer-bottom-list">
               {footerBottomList.map((val, i) => (
@@ -212,4 +212,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

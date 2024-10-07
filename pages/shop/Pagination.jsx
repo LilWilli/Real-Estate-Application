@@ -58,4 +58,3 @@ const Pagination = ({ productPerPage, totalProducts, paginate, activePage }) => 
 }
 
 export default Pagination;
-

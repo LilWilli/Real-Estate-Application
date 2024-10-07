@@ -26,7 +26,6 @@ const SingleBlog = () => {
     }
     const socialList = [{ link: "#", iconName: "icofont-facebook", className: "facebook", }, { link: "#", iconName: "icofont-twitter", className: "twitter", }, { link: "#", iconName: "icofont-linkedin", className: "linkedin", }, { link: "#", iconName: "icofont-instagram", className: "instagram", }, { link: "#", iconName: "icofont-pinterest", className: "pinterest", },];
     return (
-
         <div>
             <NavItems />
             <PageHeader title={"Single Blog Pages"} curPage={"Blog / Blog Details"} />

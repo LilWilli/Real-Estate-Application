@@ -1,3 +1,4 @@
+import NavItems from 'Component/NavItems';
 import PageHeader from 'Component/PageHeader';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import blogList from 'utilis/blogdata';
 const BlogPage = () => {
   return (
     <div>
+      <NavItems />
       <PageHeader title="Our Blog Page" curPage="Blog" />
       <div className='blog-section padding-tb section-bg'>
         <div className="container">

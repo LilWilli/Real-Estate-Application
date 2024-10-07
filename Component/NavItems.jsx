@@ -9,17 +9,17 @@ const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFixed, setHeaderFixed] = useState(false);
-  const user = useContext(AuthContext);
-  console.log(user)
+  const user = useContext(AuthContext); // Ensure AuthContext is set up properly
+
   useEffect(() => {
     const handleScroll = () => {
       setHeaderFixed(window.scrollY > 200);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Function to set the navigation access cookie
   const handleNavigation = () => {
     setCookie('nav-access', 'true', { maxAge: 3600 }); // 1-hour cookie
   };
@@ -53,39 +53,25 @@ const NavItems = () => {
                 <div className="menu">
                   <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
                     <li>
-                      <Link href="/" onClick={handleNavigation}>
-                        Home
-                      </Link>
+                      <Link href="/" onClick={handleNavigation}>Home</Link>
                     </li>
                     <li>
-                      <Link href="/shop" onClick={handleNavigation}>
-                        Estate Shop
-                      </Link>
+                      <Link href="/shop" onClick={handleNavigation}>Estate Shop</Link>
                     </li>
                     <li>
-                      <Link href="/blog" onClick={handleNavigation}>
-                        Blog
-                      </Link>
+                      <Link href="/blog" onClick={handleNavigation}>Blog</Link>
                     </li>
                     <li>
-                      <Link href="/about" onClick={handleNavigation}>
-                        About
-                      </Link>
+                      <Link href="/about" onClick={handleNavigation}>About</Link>
                     </li>
                     <li>
-                      <Link href="/contact" onClick={handleNavigation}>
-                        Contact
-                      </Link>
+                      <Link href="/contact" onClick={handleNavigation}>Contact</Link>
                     </li>
                     <li>
-                      <Link href="/sign-up" className='lab-btn' onClick={handleNavigation}>
-                        Create Account
-                      </Link>
+                      <Link href="/sign-up" className='lab-btn' onClick={handleNavigation}>Create Account</Link>
                     </li>
                     <li>
-                      <Link href="/login" onClick={handleNavigation}>
-                        Log In
-                      </Link>
+                      <Link href="/login" onClick={handleNavigation}>Log In</Link>
                     </li>
                   </ul>
                 </div>
