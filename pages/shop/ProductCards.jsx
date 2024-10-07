@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Rating from 'Component/Rating';
 
-// Defining the ProductCards component
 const ProductCards = ({ gridList, products }) => {
     return (
         <div className={`shop-product-wrap row justify-content-center ${gridList ? "grid" : "list"}`}>
@@ -54,18 +53,18 @@ const ProductCards = ({ gridList, products }) => {
                                 />
                             </div>
                             <div className='product-action-link'>
-                                <Link href={`/estates/${product.id}`} passHref legacyBehavior>
+                                <Link href={`/estates/${product.id}`} passHref>
                                     <i className='icofont-eye'></i>
                                 </Link>
                                 <a href="#"><i className='icofont-heart'></i></a>
-                                <Link href="/estate-cart" passHref legacyBehavior>
+                                <Link href="/estate-cart" passHref>
                                     <i className='icofont-cart-alt'></i>
                                 </Link>
                             </div>
                         </div>
                         <div className="product-content">
                             <h5>
-                                <Link href={`/estates/${product.id}`} passHref legacyBehavior>
+                                <Link href={`/estates/${product.id}`} passHref>
                                     {product.name}
                                 </Link>
                             </h5>

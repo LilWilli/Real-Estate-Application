@@ -35,11 +35,10 @@ const Search = ({ products }) => {
                                             width={70}
                                             height={70}
                                             alt={product.name}
-                                            className='flex-{grow|shrink}-0'
+                                            className='flex-grow-0 flex-shrink-0'
                                         />
                                     </div>
                                     <div>
-                                        {/* Add any additional content if needed */}
                                         <h6>{product.name}</h6>
                                     </div>
                                 </div>
