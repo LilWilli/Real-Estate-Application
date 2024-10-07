@@ -1,6 +1,6 @@
 
 // Importing necessary modules and functions
-import { connectToDatabase } from '../../utilis/database'; // Function to connect to the database
+import { connectToDatabase } from '../utils/database'; // Function to connect to the database
 import bcrypt from 'bcryptjs'; // Function to hash passwords
 import jwt from 'jsonwebtoken'; // Function to generate JSON Web Tokens
 
