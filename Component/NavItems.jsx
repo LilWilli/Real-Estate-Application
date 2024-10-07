@@ -29,7 +29,7 @@ const NavItems = () => {
       <div className="header-top d-md-none">
         <div className="container">
           <div className="header-top-area">
-            <Link href="/signup" className="lab-btn me-3" onClick={handleNavigation}>
+            <Link href="/sign-up" className="lab-btn me-3" onClick={handleNavigation}>
               <span>Create Account</span>
             </Link>
             <Link href="/login" onClick={handleNavigation}>
@@ -78,7 +78,7 @@ const NavItems = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/signup" className='lab-btn' onClick={handleNavigation}>
+                      <Link href="/sign-up" className='lab-btn' onClick={handleNavigation}>
                         Create Account
                       </Link>
                     </li>
