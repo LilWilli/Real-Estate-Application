@@ -19,7 +19,6 @@ async function connectToDatabase() {
             // Specifying the host, user, password, and database details from the environment variables.
             host: process.env.MYSQL_HOST,
             user: process.env.MYSQL_USER,
-            password: process.env.MYSQL_PASSWORD,
             database: process.env.MYSQL_DATABASE,
         });
         // Logging a message when the database connection is successfully established.
