@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Search = ({ products }) => {
+const Search = ({ products = [] }) => { // Default to empty array if undefined
     const [searchTerm, setSearchTerm] = useState("");
 
+    // Filter products only if products array is defined
     const filterProducts = products.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
