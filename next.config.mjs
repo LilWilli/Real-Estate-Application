@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
+  // Configuration for remote images
   images: {
     remotePatterns: [
       {
@@ -19,9 +21,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.imgur.com',
       },
-      // ... other image patterns you might have
+      // Add other remote image patterns if needed
     ],
   },
+
   webpack: (config, { isServer }) => {
     // Ignore these modules in client-side bundles
     if (!isServer) {
@@ -34,14 +37,14 @@ const nextConfig = {
       };
     }
 
-    // Custom plugin to log errors during the build process instead of suppressing them
+    // Custom plugin to log errors during the build process
     config.plugins.push({
       apply: (compiler) => {
         compiler.hooks.emit.tapAsync('LogErrorsPlugin', (compilation, callback) => {
           if (compilation.errors.length > 0) {
             console.error('Build errors:', compilation.errors); // Log errors instead of ignoring
           }
-          callback(); // Proceed with the build
+          callback(); // Continue with the build
         });
       },
     });
