@@ -1,20 +1,13 @@
 // Importing necessary modules
-import express from 'express'; // Importing Express for handling HTTP requests
-import bcrypt from 'bcryptjs'; // Importing bcryptjs for hashing passwords
-import jwt from 'jsonwebtoken'; // Importing jsonwebtoken for generating JSON Web Tokens
-import { connectToDatabase } from './utils/database'; // Adjusted to './' if 'utils' is a local directory
-import dotenv from 'dotenv'; // Import dotenv to load environment variables
-
-dotenv.config(); // Load environment variables from .env file
-
+const express = require('express'); // Importing Express for handling HTTP requests
+const bcrypt = require('bcryptjs'); // Importing bcryptjs for hashing passwords
+const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for generating JSON Web Tokens
+const { connectToDatabase } = require('utils/database'); // Importing your database connection utility
 const db = connectToDatabase(); // Creating a database connection
-const app = express(); // Initialize Express app
-
-// Middleware to parse JSON requests
-app.use(express.json()); // Parse JSON request bodies
+const router = express.Router();
 
 // User Login Route
-app.post('/api/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
 
     // Check if both email and password are provided
@@ -51,8 +44,5 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Set the server to listen on the specified PORT
-const PORT = process.env.PORT || 3002; // Default to 3000 if PORT is not defined
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// Export the router
+module.exports = router; // Use module.exports to export the router
