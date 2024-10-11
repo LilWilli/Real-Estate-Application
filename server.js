@@ -2,9 +2,14 @@
 const express = require('express'); // Importing Express for handling HTTP requests
 const bcrypt = require('bcryptjs'); // Importing bcryptjs for hashing passwords
 const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for generating JSON Web Tokens
-const { connectToDatabase } = require('utils/database'); // Importing your database connection utility
-const db = connectToDatabase(); // Creating a database connection
+const { connectToDatabase } = require('./utils/database'); // Adjust the path accordingly
 const router = express.Router();
+
+// Creating a database connection
+let db;
+(async () => {
+    db = await connectToDatabase(); // Await the asynchronous connection
+})();
 
 // User Login Route
 router.post('/api/login', async (req, res) => {
