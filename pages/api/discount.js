@@ -1,3 +1,4 @@
+// pages/api/discount.js
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
@@ -23,7 +24,6 @@ export default async function handler(req, res) {
 
             if (rows.length > 0) {
                 const discount = rows[0];
-
                 if (discount.used) {
                     res.status(400).json({ error: 'Discount code already used' });
                 } else {
@@ -33,11 +33,12 @@ export default async function handler(req, res) {
             } else {
                 res.status(404).json({ error: 'Invalid discount code' });
             }
+            pool.end(); // Close the pool connection
         } catch (error) {
-            console.error('Error processing discount code:', error);
+            console.error('Error processing discount code:', error.message);
             res.status(500).json({ error: 'Internal server error' });
         }
     } else {
-        res.status(405).json({ error: 'Method not allowed' });
+        res.status(405).json({ error: 'Method Not Allowed' });
     }
 }

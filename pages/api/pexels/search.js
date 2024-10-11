@@ -1,3 +1,4 @@
+// pages/api/pexels/search.js
 import axios from 'axios';
 
 export const config = {
@@ -18,9 +19,13 @@ export default async function handler(req, res) {
             },
         });
 
-        res.status(200).json(response.data);
+        if (response.status === 200) {
+            res.status(200).json(response.data);
+        } else {
+            res.status(response.status).json({ error: 'Failed to fetch images from Pexels' });
+        }
     } catch (error) {
-        console.error('Error fetching images from Pexels:', error);
-        res.status(500).json({ error: 'Error fetching images from Pexels' });
+        console.error('Error fetching images from Pexels:', error.message);
+        res.status(500).json({ error: 'Internal server error' });
     }
 }
