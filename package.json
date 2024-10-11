@@ -45,6 +45,7 @@
     "main": "^1000.0.1",
     "match-sorter": "^6.3.4",
     "mysql2": "^3.11.3",
+    "next": "^14.2.15",
     "next-cookie": "^2.8.0",
     "nextjs-progressbar": "^0.0.16",
     "nprogress": "^0.2.0",

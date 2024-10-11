@@ -9,6 +9,10 @@ const MYSQL_CONFIG = {
     database: 'authenticated_users', // Hardcoded database name
 };
 
+export const config = {
+    runtime: 'nodejs',
+};
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
@@ -22,7 +26,6 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Initialize MySQL connection
         const connection = await mysql.createPool(MYSQL_CONFIG);
 
         // Check if the user exists

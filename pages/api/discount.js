@@ -9,13 +9,16 @@ const MYSQL_CONFIG = {
     database: process.env.MYSQL_DATABASE,
 };
 
-const pool = mysql.createPool(MYSQL_CONFIG);
+export const config = {
+    runtime: 'nodejs',
+};
 
-async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { code } = req.body;
 
         try {
+            const pool = mysql.createPool(MYSQL_CONFIG);
             const [rows] = await pool.query('SELECT * FROM discount_codes WHERE code = ?', [code]);
 
             if (rows.length > 0) {
@@ -38,4 +41,3 @@ async function handler(req, res) {
         res.status(405).json({ error: 'Method not allowed' });
     }
 }
-export default handler;

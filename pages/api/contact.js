@@ -1,3 +1,7 @@
+export const config = {
+    runtime: 'nodejs',
+};
+
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { name, email, number, subject, message } = req.body;

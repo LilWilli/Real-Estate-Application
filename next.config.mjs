@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  runtime: 'nodejs',
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -35,11 +34,13 @@ const nextConfig = {
       };
     }
 
-    // Custom plugin to suppress errors during the build process
+    // Custom plugin to log errors during the build process instead of suppressing them
     config.plugins.push({
       apply: (compiler) => {
-        compiler.hooks.emit.tapAsync('IgnoreErrorsPlugin', (compilation, callback) => {
-          compilation.errors.length = 0; // Clear all errors
+        compiler.hooks.emit.tapAsync('LogErrorsPlugin', (compilation, callback) => {
+          if (compilation.errors.length > 0) {
+            console.error('Build errors:', compilation.errors); // Log errors instead of ignoring
+          }
           callback(); // Proceed with the build
         });
       },
