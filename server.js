@@ -1,53 +1,24 @@
+// server.js
+
 // Importing necessary modules
 const express = require('express'); // Importing Express for handling HTTP requests
-const bcrypt = require('bcryptjs'); // Importing bcryptjs for hashing passwords
-const jwt = require('jsonwebtoken'); // Importing jsonwebtoken for generating JSON Web Tokens
-const { connectToDatabase } = require('./utils/database'); // Adjust the path accordingly
-const router = express.Router();
+const cookieParser = require('cookie-parser'); // Importing cookie-parser for handling cookies
+const loginRouter = require('./utils/loginRouter'); // Adjust the path to your login router
 
-// Creating a database connection
-let db;
-(async () => {
-    db = await connectToDatabase(); // Await the asynchronous connection
-})();
+// Create an instance of the Express application
+const app = express();
 
-// User Login Route
-router.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;
+// Middleware
+app.use(express.json()); // Parse JSON bodies
+app.use(cookieParser()); // Parse cookies
 
-    // Check if both email and password are provided
-    if (!email || !password) {
-        return res.status(400).json({ error: 'Email and password are required' });
-    }
+// Use the login router for API routes
+app.use(loginRouter);
 
-    try {
-        // Check if user exists
-        const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+// Determine the port to listen on, using the one provided by Render
+const PORT = process.env.PORT || 3000; // Fallback to 3000 if PORT is not set
 
-        if (rows.length === 0) {
-            return res.status(401).json({ error: 'Invalid credentials' });
-        }
-
-        const user = rows[0];
-
-        // Check password validity
-        const isMatch = bcrypt.compareSync(password, user.password);
-        if (!isMatch) {
-            return res.status(401).json({ error: 'Invalid credentials' });
-        }
-
-        // Generate a JWT token
-        const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        // Set the token in a cookie for future requests
-        res.cookie('user-token', token, { httpOnly: true, maxAge: 3600000 });
-
-        res.status(200).json({ message: 'Login successful', token });
-    } catch (error) {
-        console.error('Error during login:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-// Export the router
-module.exports = router; // Use module.exports to export the router
