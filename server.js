@@ -28,7 +28,7 @@ app.prepare().then(() => {
   });
 
   // Determine the port to listen on, using the one provided by Render
-  const PORT = process.env.PORT || 3000; // Fallback to 3000 if PORT is not set
+  const PORT = process.env.PORT || 3002; // Fallback to 3000 if PORT is not set
 
   // Start the server
   server.listen(PORT, (err) => {
