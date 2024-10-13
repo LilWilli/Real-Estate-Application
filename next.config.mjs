@@ -21,12 +21,16 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.imgur.com',
       },
-      // Add other remote image patterns if needed
     ],
   },
 
+  // Enforcing Node.js runtime globally (instead of Edge runtime)
+  experimental: {
+    runtime: 'nodejs', // Set Node.js runtime globally
+  },
+
   webpack: (config, { isServer }) => {
-    // Ignore these modules in client-side bundles
+    // Ignore certain modules in client-side bundles
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -42,9 +46,9 @@ const nextConfig = {
       apply: (compiler) => {
         compiler.hooks.emit.tapAsync('LogErrorsPlugin', (compilation, callback) => {
           if (compilation.errors.length > 0) {
-            console.error('Build errors:', compilation.errors); // Log errors instead of ignoring
+            console.error('Build errors:', compilation.errors);
           }
-          callback(); // Continue with the build
+          callback();
         });
       },
     });
@@ -53,4 +57,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default nextConfig;  // Using ES module syntax for export
