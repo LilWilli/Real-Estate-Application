@@ -4,9 +4,9 @@ import jwt from 'jsonwebtoken';
 
 // MySQL configuration
 const MYSQL_CONFIG = {
-    host: 'localhost',
-    user: 'root',
-    password: '', // add your MySQL password
+    host: '192.168.0.10',
+    user: 'William',
+    password: 'demilade1234#', // add your MySQL password
     database: 'authenticated_users',
 };
 

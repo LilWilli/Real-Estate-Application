@@ -5,8 +5,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const MYSQL_CONFIG = {
-    host: 'localhost',
-    user: 'root',
+    host: '192.168.0.10',
+    user: 'William',
+    password: 'demilade1234#',
     database: 'authenticated_users',
 };
 
